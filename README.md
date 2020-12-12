@@ -2,6 +2,11 @@
 ## Funktion
 Dieses Image verbindet sich zum MySQL Server und dumpt jede Datenbank in einzelne SQL-Dateien.
 
+## Verwendung
+Das Skript ist so ausgelegt das es von extern aus gestartet werden muss. Am einfachst geht das über einen Cronjob Eintrag auf dem Host System.  
+Beispiel:
+``50 2 * * *       /usr/local/bin/docker-compose -f /home/[user]/backup/docker-compose.yml up "mysql-backup"``
+
 ## Einrichtung
 Es ist eine Beispiel [Docker-Compose](/docker-compose.yml) Datei im Repo vorhanden. Dort müssen nur die Anmelde Daten und das entsprechende Docker MySQL Netzwerk eingetragen werden.
 
