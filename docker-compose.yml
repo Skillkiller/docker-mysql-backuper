@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    mysql-backup:
+        build: mysql-backup
+        networks:
+            - mysql
+        volumes:
+            - mysql_backup_data:/backup
+            - /usr/share/zoneinfo/:/usr/share/zoneinfo/:ro
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
+        environment:
+            - "MYSQL_PASSWORD=..."
+            - "MYSQL_USERNAME=...
+            - "MYSQL_HOST=mysql_container_name
+volumes:
+    mysql_backup_data:
+networks:
+    mysql:
+        external:
+            name: mysql
